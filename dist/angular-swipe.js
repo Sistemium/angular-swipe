@@ -81,6 +81,11 @@
 
         element.on(getEvents(pointerTypes, 'move'), function(event) {
 
+          if (event.touches && event.touches.length > 1) {
+            // more than one touch isn't a swipe
+            return;
+          }
+
           if (! active) {
             return;
           }
